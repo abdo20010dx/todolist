@@ -6,14 +6,14 @@ import { UpdateTodolistInput } from './dto/update-todolist.input';
 
 @Resolver(() => Todolist)
 export class TodolistResolver {
-  constructor(private readonly todolistService: TodolistService) {}
+  constructor(private readonly todolistService: TodolistService) { }
 
   @Mutation(() => Todolist)
   createTodolist(@Args('createTodolistInput') createTodolistInput: CreateTodolistInput) {
     return this.todolistService.create(createTodolistInput);
   }
 
-  @Query(() => [Todolist], { name: 'todolist' })
+  @Query(() => [Todolist], { name: 'allTodolist' })
   findAll() {
     return this.todolistService.findAll();
   }
